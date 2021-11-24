@@ -1,33 +1,39 @@
 import csv
+import io
 import re
 from datetime import datetime
+
+main_csv = 'eggs1.csv'
+sorted_csv = 'example.csv'
+
 
 def date_key(row):
     return datetime.strptime(row[9].strip(), "%d/%b/%y %H:%M %p")
 
-with open('eggs.csv', newline='') as csvfile:
-    spamreader = list(csv.reader(csvfile, delimiter=','))
-    spamreader.sort(key=date_key)
+def ticket_number_key(row):
+    result = re.findall('\d+', row[1])
+    return result
+
+def csv_writer(text, file_path, nline):
+    s = io.StringIO(text)
+    with open(file_path, 'a', newline='') as f:
+        for line in s:
+            f.write(line + nline)
+            
+
+with open(main_csv, newline='') as csvfile:
+    first_line = csvfile.readline()
+    spamreader = list(csv.reader(csvfile, delimiter='|'))
+    spamreader.sort(key=ticket_number_key)
+    csv_writer(first_line, sorted_csv, '')
     for row in spamreader:
+        csv_writer('| '.join(row), sorted_csv, '\n')
         print(datetime.strptime(row[9].strip(), "%d/%b/%y %H:%M %p"))
-        print(', '.join(row))
+        print('| '.join(row))
+
+ 
         
 
-
-
-
-
-
-        #for item in row:
-            #match = re.search('\d\d/\w{3}/\d\d \d:\d\d \w\w', item)
-            #if match:
-                #li = item.split()
-                #li[1] = '0' + li[1]
-                #item =' '.join(li)
-                #print(', '.join(row))
-            #else: 
-                #pass
-        
 
 
 
