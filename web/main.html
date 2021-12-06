@@ -7,31 +7,61 @@
     <link rel="icon" type="image/png" href="/icon.png">
     <link rel="stylesheet" href="main.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
-    <input id="btn" type="file" style="display:none;" onchange="document.getElementById('pathtofile').value=this.value.substring(this.value.lastIndexOf('\\')+1);">
-    <input id="pathtofile" type="text" >
+
+
+<form action="/cgi-bin/form.py" method="get" enctype="multipart/form-data">
+
+    <input id="btn" type="file" name="filename" style="display:none;" onchange="document.getElementById('pathtofile').value=this.value.substring(this.value.lastIndexOf('\\')+1);">
+    <input id="pathtofile" type="text">
     <input id="show1" type="button" onclick="document.getElementById('btn').click();" value="Выбрать" />
 
-    <button id="show2" type="submit" name="Generate">Загрузить</button>
+    <button id="show2" type="submit" name="Generate" >Загрузить</button>
+  </form>
 
     <div id="info"></div>
 
+<div class="filtermodule">
+    <div class="filter">
+        <p class="parag">Номер столбца:</p>
+        <form action="/action_page.php">
+          <select class="drop" name="column">
+            <option value="0">1</option>
+            <option value="1">2</option>
+            <option value="2">3</option>
+            <option value="3">4</option>
+            <option value="4">5</option>
+            <option value="5">6</option>
+            <option value="6">7</option>
+            <option value="7">8</option>
+            <option value="8">9</option>
+            <option value="9">10</option>
+          </select>
+        </form>
+      </div>
+
+    <div class="filter">
+    <p class="parag">Сортировка по:</p>
     <form action="/action_page.php">
-      <label for="cars">Номер столбца:</label>
-      <select name="cars" id="dropdownlist">
-        <option value="0">1</option>
-        <option value="1">2</option>
-        <option value="2">3</option>
-        <option value="3">4</option>
-        <option value="4">5</option>
-        <option value="5">6</option>
-        <option value="6">7</option>
-        <option value="7">8</option>
-        <option value="8">9</option>
-        <option value="9">10</option>
+      <select class="drop" name="sortrule">
+        <option value="number">Цифры</option>
+        <option value="letter">Буквы</option>
       </select>
     </form>
+    </div>
+
+    <div class="filter">
+      <label class="forlabel">
+        <input type="checkbox" name="toster">
+        <icon></icon>
+      </label>
+    </div>
+</div>
+
+  <img id="logoapp" src="/icontoapp.png" alt="logo">
 
     <script scr="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript">

@@ -9,7 +9,7 @@ body {
   font-family: 'Montserrat';
   font-size: 22px;
 
-  padding: 50px;
+
 }
 
 #pathtofile{
@@ -26,84 +26,164 @@ body {
   box-sizing: border-box;
   box-shadow: inset 1px 1px 15px rgba(37, 37, 37, 0.1);
   border-radius: 5px;
-}
+  }
 
-#pathtofile:placeholder {
-  color: rgba(255, 255, 0, 0.5);
-}
-#show1 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 24px;
+  #pathtofile:placeholder {
+    color: rgba(255, 255, 0, 0.5);
+  }
+  #show1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 24px;
 
-  position: absolute;
-  width: 136px;
-  height: 56px;
-  left: 362px;
-  top: 56px;
+    position: absolute;
+    width: 136px;
+    height: 56px;
+    left: 362px;
+    top: 56px;
 
-  border: 1px solid #FFFFFF;
-  box-sizing: border-box;
-  border-radius: 5px;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 5px;
 
-  background-color: Transparent;
-  background-repeat:no-repeat;
-  cursor:pointer;
-  overflow: hidden;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    cursor:pointer;
+    overflow: hidden;
 
-  color: #FFFFFF;
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-}
+    color: #FFFFFF;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+  }
 
-#show2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 24px;
+  #show2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 24px;
 
-  position: absolute;
-  width: 136px;
-  height: 56px;
-  left: 522px;
-  top: 56px;
+    position: absolute;
+    width: 136px;
+    height: 56px;
+    left: 522px;
+    top: 56px;
 
-  outline: #FFFFFF;
-  border-color: #FFFFFF;
+    outline: #FFFFFF;
+    border-color: #FFFFFF;
 
-  background: #FFFFFF;
-  border-radius: 5px;
+    background: #FFFFFF;
+    border-radius: 5px;
 
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-}
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+  }
 
- #dropdownlist{
 
-   display: flex;
-   flex-direction: row;
-   justify-content: flex-end;
-   align-items: center;
-   padding: 8px;
+    .filtermodule{
+      padding-top: 142px;
+      padding-left: 20px;
+      left: 1000px;
+      top: 100px;
+      border: 1px solid black
+    }
 
-   position: absolute;
-   width: 136px;
-   height: 40px;
-   left: 42px;
-   top: 182px;
+    .filter{
+      display: inline-block;
+      padding: 0px;
+    }
 
-   background: #FFFFFF;
-   border: 0.5px solid rgba(37, 37, 37, 0.3);
-   box-sizing: border-box;
-   box-shadow: inset 0px 4px 8px rgba(37, 37, 37, 0.15);
-   border-radius: 5px;
- }
+    .drop{
+
+     display: inline;
+     padding: 8px;
+     left: 42px;
+     top: 152px;
+     width: 136px;
+     height: 40px;
+
+     background: #FFFFFF;
+     border: 0.5px solid rgba(37, 37, 37, 0.3);
+     box-sizing: border-box;
+     box-shadow: inset 0px 4px 8px rgba(37, 37, 37, 0.15);
+     border-radius: 5px;
+   }
+
+    .drop:first-child{
+      margin-right: 24px;
+    }
+
+   .parag{
+      width: 140px;
+      height: 22px;
+      left: 42px;
+      top: 132px;
+
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 22px;
+
+      color: #FFFFFF;
+   }
+
+   .forlabel {
+      width: 7rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+      margin: 0.25rem 0;
+  }
+  input { display: none; }
+
+  icon {
+    color: #FFFFFF;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'FontAwesome';
+    width: 1.25rem;
+    height: 1.25rem;
+    transform: scale(2);
+    }
+    icon::after, icon::before {
+      position: absolute;
+      transition: 0.5s;
+    }
+
+    icon::after {
+      content: '\f160';
+    }
+
+    icon::before {
+      content: '\f161';
+      transform: scale(0);
+    }
+
+    input:checked + icon::after {
+      color: transparent;
+    }
+
+    input:checked + icon::before {
+      transform: scale(1);
+    }
+
+    #logoapp{
+      position: absolute;
+      left: 6%;
+      right: 87.71%;
+      top: 84.57%;
+      bottom: 6%;
+    }
